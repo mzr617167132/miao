@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" 
+	src="../js/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("input[type='button']").click(function(){
+			//创建三个td
+			var nametd = $("<td></td>");
+			var agetd = $("<td></td>");
+			var salarytd = $("<td></td>");
+			//给td添加文本内容
+			nametd.text($("input:eq(0)").val());
+			agetd.text($("input:eq(1)").val());
+			salarytd.text($("input:eq(2)").val());
+			//再创建删除按钮的td
+			var deltd = 
+				$("<td><input type='button' value='删除' ></td>");
+			//给td里面的按钮添加点击事件 
+			deltd.children().click(function(){
+				//删除按钮所在行
+				$(this).parent().parent().remove();
+			});
+			//创建tr并且把上面4个td添加到tr里面 
+			var tr = $("<tr></tr>");
+			tr.append(nametd);
+			tr.append(agetd);
+			tr.append(salarytd);
+			tr.append(deltd);
+			//把tr装进table里面
+			$("table").append(tr);
+		})  
+	})
+</script>
+</head>
+<body>
+<input type="text" placeholder="姓名">
+<input type="text" placeholder="年龄">
+<input type="text" placeholder="工资">
+<input type="button" value="添加">
+<hr>
+<table>
+	<caption>员工表</caption>
+	<tr>
+		<th>姓名</th>
+		<th>年龄</th>
+		<th>工资</th>
+		<th>操作</th>
+	</tr>
+</table>
+</body>
+</html>

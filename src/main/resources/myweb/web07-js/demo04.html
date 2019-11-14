@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function fn1(){
+		var i1 = document.getElementById("i1");
+		var i2 = document.getElementById("i2");
+		var d = document.getElementById("d1");
+		d.innerText = parseFloat(i1.value)
+						+ parseFloat(i2.value);
+	}
+	function fn2(){
+		var i1 = document.getElementById("i1");
+		var i2 = document.getElementById("i2");
+		var d = document.getElementById("d1");
+		d.innerText = parseFloat(i1.value)
+						- parseFloat(i2.value);
+	}
+	function fn3(){
+		var i1 = document.getElementById("i1");
+		var i2 = document.getElementById("i2");
+		var d = document.getElementById("d1");
+		d.innerText = parseFloat(i1.value)
+						* parseFloat(i2.value);
+	}
+	function fn4(){
+		var i1 = document.getElementById("i1");
+		var i2 = document.getElementById("i2");
+		var d = document.getElementById("d1");
+		d.innerText = parseFloat(i1.value)
+						/ parseFloat(i2.value);
+	}
+	function myfn(x){
+		var i1 = document.getElementById("i1");
+		var i2 = document.getElementById("i2");
+		var d = document.getElementById("d1");
+		var result = 0;
+		switch(x){
+			case 1:
+				result = parseFloat(i1.value)
+				+ parseFloat(i2.value);
+			break;
+			case 2:
+				result = parseFloat(i1.value)
+				- parseFloat(i2.value);
+			break;
+			case 3:
+				result = parseFloat(i1.value)
+				* parseFloat(i2.value);
+			break;
+			case 4:
+				result = parseFloat(i1.value)
+				/ parseFloat(i2.value);
+			break;
+		
+		}
+		d.innerText = result;
+	}
+</script>
+</head>
+<body>
+<!-- parseFloat(i1.value) -->
+<input type="text" id="i1">
+<input type="text" id="i2">
+<input type="button" value="+" onclick="myfn(1)">
+<input type="button" value="-" onclick="myfn(2)" >
+<input type="button" value="*" onclick="myfn(3)" >
+<input type="button" value="/" onclick="myfn(4)" >
+<div id="d1"></div>
+</body>
+</html>
+
+
+

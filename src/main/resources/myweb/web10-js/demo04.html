@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	/* setTimeout(function(){
+		alert("啦啦啦");
+	},2000); */
+	//开启定时器 每隔一秒获取系统时间，从时间中提取时分秒
+	//把得到的时分秒显示到myh1里面 搞定！
+	onload = function(){
+		var d = new Date();
+		myh1.innerText = d.toLocaleTimeString();
+	}
+	setInterval(function(){
+		var d = new Date();
+		myh1.innerText = d.toLocaleTimeString();
+	},1000);
+	
+	function start(){
+		//把时分秒转成 总秒数
+		var h = i1.value*3600;
+		var m = i2.value*60;
+		//总秒数
+		var s = h+m+parseInt(i3.value);
+		
+		//开启定时器
+		setInterval(function(){
+			s--;
+			//得到小时      3676
+			var hour = parseInt(s/3600);
+			hour = hour<10?"0"+hour:hour;
+			//得到分钟
+			var minute = parseInt(s%3600/60);
+			minute = minute<10?"0"+minute:minute;
+			//得到秒
+			var seconds = s%60;
+			seconds = seconds<10?"0"+seconds:seconds;
+			myh2.innerText = hour+":"+minute+":"+seconds;
+		},1000);
+		
+		
+	}
+</script>
+</head>
+<body>
+<h1 id="myh1"></h1>
+<input type="text" id="i1" placeholder="小时">
+<input type="text" id="i2" placeholder="分钟">
+<input type="text" id="i3" placeholder="秒">
+<input type="button" value="开始" onclick="start()">
+<h2 id="myh2"></h2>
+</body>
+</html>
+
+
+
+
+
+
+

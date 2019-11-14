@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var arr = [["秦皇岛","唐山","石家庄"],
+		["沈阳","大连","丹东"],["大同","太原","临汾"]];
+	
+	function myfn(){
+		//alert(s1.value);
+		//清空 
+		s2.innerHTML = "<option>请选择</option>"; 
+		//通过得到的s1.value去数组arr中得到对应的城市数组
+		var citys = arr[s1.value];
+		//遍历城市数组
+		for(var i=0;i<citys.length;i++){
+			var city = citys[i];
+			//根据遍历的每一个城市名称创建对应的option元素
+			var opt = document.createElement("option");
+			opt.innerText = city;
+			//把创建出来的元素对象添加到s2下拉选中
+			s2.appendChild(opt);
+		}
+		//此时存在bug，想办法解决掉
+	}
+</script>
+</head>
+<body>
+<!-- onchange当元素的值发生改变时触发此事件 -->
+<select id="s1" onchange="myfn()">
+	<option>请选择</option>
+	<option value="0">河北省</option>
+	<option value="1">辽宁省</option>
+	<option value="2">山西省</option>
+</select>
+<select id="s2">
+	<option>请选择</option>
+</select>
+</body>
+</html>
+
+
+
+

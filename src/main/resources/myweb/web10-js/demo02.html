@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div,img{
+		width: 200px;
+		height: 150px;
+	}
+</style>
+<script type="text/javascript">
+	onload = function(){
+		changeImg();//页面加载完让第一张图片显示
+	}
+	var x = 0;
+	 setInterval(function(){
+		changeImg();
+	},1000);  
+	function changeImg(){
+		var visibleIndex = x++%4;
+		var arr = document.getElementsByTagName("img");
+		for(var i=0;i<arr.length;i++){
+			arr[i].style.display=i==visibleIndex?"block":"none";
+		}
+	}
+ 
+ 
+ 
+</script>
+</head>
+<body>
+<div>
+	<img src="../imgs/a.jpg">
+	<img src="../imgs/1.jpg">
+	<img src="../imgs/b.jpg">
+	<img src="../imgs/k.jpg">
+</div>
+</body>
+</html>
+

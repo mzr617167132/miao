@@ -1,0 +1,103 @@
+1.
+	*and 和 or
+	*in 和 not in
+		select sal,comm from emp where ename in('james','king','ford');
+	*between x and y(包括xy); not between x andy
+		select * from emp where sal not between 2000 and 3000
+	*like not like _单个未知 %0或多个未知字符
+		查询员工姓名以k开头的员工信息 
+		select * from emp where ename like 'k%';
+	*order by 字段1 asc/desc,字段2;
+		select * from emp order by deptno,sal desc;
+	*limit 跳过的条数,请求的条数(每页的条数);limit (页数-1)*每页的条数,每页的条数;
+		查询商品表单价升序第三页每页四条数据 
+		select * from t_item order by price limit 8,4;
+
+2.
+	*concat()函数-可以将字符串进行拼接
+		查询商品表，显示商品名称，单价（价格：25元） 
+		select title,concat('价格：',price,'元') from t_item;
+	*ifnull()
+		age = ifnull(x,y) 如果x值为null则age=y 如果x不为null则age=x
+		把emp表中奖金为null的改成0 
+		update emp set comm=ifnull(comm,0);
+
+3.日期相关函数
+	*获取当前日期+时间 
+		select now();
+	*获取当前年月日 和 时分秒 
+		select curdate(),curtime();
+	*从完整的年月日时分秒中 提取年月日 和 提取时分秒 
+		select date(now()); select time(now());
+	*从完整的年月日时分秒中提取时间分量 
+		extract select extract(year/month/day/hour/minute/second from now());
+		查询每个员工的姓名和入职的年份 入职时间字段：
+		hiredate select ename,extract(year from hiredate) from emp;
+	*日期格式化 date_format()
+		date_format(时间,格式);
+		格式： %Y四位年   %y两位年   %m两位月  %c一位月   %d日   %H24小时   %h12小时    %i分   %s秒
+		把默认的时间格式转成 年月日时分秒 
+		select date_format(now(),'%Y年%m月%d日 %H时%i分%s秒');
+	*把非标准时间格式转成标准格式 strtodate()
+	strtodate(字符串时间,格式) 14.08.2019 08:00:00 
+	select strtodate('14.08.2019 08:00:00','%d.%m.%Y %H:%i:%s');
+
+4.聚合函数
+	*求和：sum(求和的字段) 统计20号部门的工资总和 
+		select sum(sal) from emp where deptno=20;
+	*平均值：avg(字段) 统计所有员工的平均工资 
+		select avg(sal) from emp;
+	*最大值：max(字段) 查询30号部门的最高工资
+		select max(sal) from emp where deptno=30;
+	*最小值：min(字段) 查询30号部门的最低工资
+		select min(sal) from emp where deptno=30;
+	*计数： count(字段) 一般写count() 只有涉及null值时才使用字段名 
+		查询员工表中10号部门的员工数量
+		select count() from emp where deptno=10; 
+	 	查询所有员工中有上级领导的员工数量 
+	 	select count(mgr) from emp;
+
+5.数学相关的函数
+	*floor(num) 向下取整 
+		select floor(3.84);
+	*round(num) 四舍五入
+		select round(3.8);
+	*round(num,m) m代表保留几位小数 
+		select round(3.8679,2); 3.87
+	*truncate(num,m) 非四舍五入 
+		select truncate(3.8679,2); 3.86
+	*rand()随机数0-1 
+		获取 0-5的随机整数 
+		select floor(rand()6); 
+		获取3-6的随机整数 0-3 + 3 
+		select floor(rand()4)+3;
+
+6.字符串相关函数
+	*charlength(str)获取字符串的长度 
+		select ename,charlength(ename) from emp;
+	*instr(str,substr) 获取substr在str中出现的位置 从1开始 
+		select instr('abcdefg','d');
+	*insert(str,start,length,newstr) 
+		select insert('abcdefg',3,2,'m');
+	*lower(str) upper(str) 
+		select lower('NBa'),upper('NBa');
+	*trim(str) 去两端空白 
+		select trim(' a b ');
+	*left(str,index) 从左边截取
+	*right(str,index) 从右边截取
+	*substring(str,index,?length) 从指定位置截取 
+		select left('abcdefg',2); select right('abcdefg',2); select substring('abcdefg',3,2); select substring('abcdefg',3);
+	*repeat(str,count) 重复 
+		select repeat('ab',3);
+	*replace(str,old,new) 替换 
+		select replace('This is mysql','my','your');
+	*reverse() 反转 
+		select reverse('abc');
+
+
+
+
+
+
+
+

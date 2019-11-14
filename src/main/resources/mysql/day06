@@ -1,0 +1,39 @@
+1.非空约束 not null
+	*字段的值不能为null 
+		create table t1(id int,age int not null)
+		
+2.唯一约束 unique
+	*字段的值不能重复
+		 create table t2(id int,age int unique);		
+		
+3.默认约束 default
+	*给字段设置默认值 
+		create table t3(id int,age int default 20);	
+			
+4.主键约束 primary key
+	主键：表示数据唯一性的字段称为主键
+	主键约束：唯一且非空		
+		
+5.索引
+	*创建索引
+		create index 索引名 on 表名(字段名(?字段长度)); 		
+	*查看索引
+		show index from 表名;	
+	*删除索引
+		drop index 索引名 on 表名;
+	*复合索引
+		通过多个字段创建的索引称为复合索引 
+		create index iitemtitle_price on item2(title,price);
+		
+6.事务
+	数据库中执行同一业务多条SQL语句的工作单元，
+		可以保证多条SQL全部执行成功或全部执行失败
+	事务的ACID特性，此特性是保证事务正确执行的四大基本要素
+		Atomicity：原子性，最小不可拆分，保证全部成功或全部失败
+		Consistency：一致性，保证从一个一致状态到另一个一致状态
+		Isolation：隔离性，多个事务直接互不影响
+		Durability：持久性，事务提交后数据持久保存到磁盘中
+	事务相关指令： begin,commit,rollback,savepoint xxx,rollback to xxx;		
+		
+		
+

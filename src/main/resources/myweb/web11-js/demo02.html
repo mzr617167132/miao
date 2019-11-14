@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	onload = function(){
+		var uls = document.getElementsByClassName("c1");
+		for(var i=0;i<uls.length;i++){
+			uls[i].style.display="none";
+		}
+	}
+	function myfn(li){
+		
+		
+		//通过点击的li得到里面的ul
+		var ul = li.getElementsByTagName("ul")[0];
+		//如果元素原来隐藏则显示 原来显示则隐藏 
+		ul.style.display = 
+			ul.style.display=="none"?"block":"none";
+		
+		//得到所有的ul
+		var uls = 
+			document.getElementsByClassName("c1");
+		//遍历
+		for(var i=0;i<uls.length;i++){
+			//判断如果不是我点击的统统关闭
+			if(ul!=uls[i]){
+				uls[i].style.display="none";
+			}
+			
+		}
+	}
+</script>
+</head>
+<body>
+<ul>
+<!-- 在事件里面的方法调用时传递this实际上就是把事件源对象
+	传递过去
+	事件源：装载事件的元素 -->
+	<li onclick="myfn(this)">前女友们
+		<ul class="c1">
+			<li>貂蝉</li>
+			<li>西施</li>
+			<li>杨贵妃</li>
+		</ul>
+	</li>
+	<li onclick="myfn(this)">工作朋友
+		<ul class="c1">
+			<li>马云</li>
+			<li>马化腾</li>
+			<li>刘强东</li>
+		</ul>
+	</li>
+	<li onclick="myfn(this)">亲戚
+		<ul class="c1">
+			<li>习大大</li>
+			<li>老干妈</li>
+			<li>凤姐</li>
+		</ul>
+	</li>
+</ul>
+</body>
+</html>
+
+
+

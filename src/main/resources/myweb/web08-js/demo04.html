@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function addfn(){
+		//获取页面中的相关元素
+		var i1 = document.getElementById("i1");
+		var i2 = document.getElementById("i2");
+		var ul = document.getElementById("myul");
+		var arr = i1.value.split(i2.value);
+		//alert(arr);
+		//遍历数组  得到数组之后90%以上可能性是遍历数组
+		for(var i=0;i<arr.length;i++){
+			//把数组中的内容添加到li里面然后把li添加到ul
+			ul.innerHTML+="<li>"+arr[i]+"</li>";
+		}
+	}
+</script>
+</head>
+<body>
+<input type="text" id="i1" placeholder="请输入文本">
+<input type="text" id="i2" placeholder="请输入分隔符"> 
+<input type="button" value="添加" onclick="addfn()">
+<ul id="myul"></ul>
+</body>
+</html>
+
+
+
+
+
+
+
+

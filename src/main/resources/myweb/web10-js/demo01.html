@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function myfn(){
+		myimg.style.width = i1.value+"px";
+		myimg.style.height = i2.value+"px";
+		myimg.style.marginLeft = i3.value+"px";
+		myimg.style.marginTop = i4.value+"px";
+	}
+	
+	/* var x = 0;
+	onclick = function(){
+		x+=10;
+		myimg.style.marginLeft = x+"px";
+	} */
+	
+	onclick = function(){
+		//取出元素原来的位置
+		var oldX = myimg.style.marginLeft;
+	 	oldX = parseInt(oldX);
+	 	//元素如果没有添加marginLeft 
+	 	//则第一次取值时得到的是空字符串 直接转成数值是NaN 
+	 	if(isNaN(oldX)){
+	 		oldX=0;
+	 	}
+		oldX+=10;
+		//让原来的位置+10再放回去
+		myimg.style.marginLeft = oldX+"px";
+	} 
+
+	setInterval(function(){
+		//取出元素原来的位置
+		var oldX = myimg.style.marginLeft;
+	 	oldX = parseInt(oldX);
+	 	//元素如果没有添加marginLeft 
+	 	//则第一次取值时得到的是空字符串 直接转成数值是NaN 
+	 	if(isNaN(oldX)){
+	 		oldX=0;
+	 	}
+		oldX+=2;
+		if(oldX>=200){
+			oldX=0;
+		}
+		//让原来的位置+10再放回去
+		myimg.style.marginLeft = oldX+"px";
+	},10);
+	
+</script>
+</head>
+<body>
+<div id="d1">今天星期四</div>
+<input type="text" id="i1" placeholder="宽度">
+<input type="text" id="i2" placeholder="高度">
+<input type="text" id="i3" placeholder="左">
+<input type="text" id="i4" placeholder="上">
+<input type="button" value="确定" onclick="myfn()">
+<hr>
+<img id="myimg" src="../imgs/2.gif">
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

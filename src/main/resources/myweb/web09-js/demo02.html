@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+/* 声明对象  */
+  function Person(name,age){
+	//给对象添加属性
+	this.name=name;
+	this.age=age;
+	//给对象添加方法
+	this.run = function(){
+		alert("name:"+name+" age:"+age);
+	}
+}
+	/* var p = new Person("刘备",38);
+	p.run(); */
+	function Student(){}
+	var s = new Student();
+	//给对象添加属性
+	s.name="张三";
+	//给对象添加方法
+	s.run = function(){
+		alert(this.name+"在跑！");
+	}
+	s.run();
+	
+	/* 第二种实例化对象的方式 */
+	var p1 = {
+			"name":"曹操",
+			"age":18,
+			"run":function(){
+			 alert("name:"+this.name+" age:"+this.age);
+			
+			}
+	}
+	p1.run();
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

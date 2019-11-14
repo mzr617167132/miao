@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function gofn(){
+		//判断是否http开头
+		var reg = /^http/i;
+		/* if(reg.test(i1.value)){
+			location.href=i1.value;
+		}else{
+			location.href="http://"+i1.value;
+		} */
+		location.href=reg.test(i1.value)
+				?i1.value:"http://"+i1.value;
+	}
+</script>
+</head>
+<body>
+<input type="text" placeholder="请输入访问地址" 
+			id="i1">
+<input type="button" value="访问" onclick="gofn()">
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

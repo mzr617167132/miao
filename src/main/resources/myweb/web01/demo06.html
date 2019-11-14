@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- alt:当图片不能正常显示时显示的文本 
+	src:路径
+	相对路径：访问站内资源
+		1. 和页面在同一目录：直接写图片名
+		2. 在页面的上一目录: ../往上捯一层
+					 ../../两层 最后图片名
+		3. 在页面的下一目录: 文件夹名/图片名
+	绝对路径：可以访问站内也可以访问站外资源（推荐）
+		以http开头指向图片的资源
+		访问站外资源的图片称为盗链，节省自己网站资源和流量
+		但是有图片不能正常显示的风险(对方图片路径改变)
+	title:鼠标悬停时显示的文本
+	width:宽度   两种赋值方式：
+		1.像素  
+		2.百分比(上级元素百分比)
+		只给宽度赋值则高度会等比例缩放
+	height:高度
+	支持的图片格式：jpg/jpeg 、 png支持透明色 、gif
+-->
+<img alt="这是美女" width="50%" src="../imgs/k.jpg" title="啦啦啦">
+<img alt="也是美女" width="200px" src="http://cdn.tmooc.cn/bsfile//courseImg///E193CCAC163B4B8DB7B3969CD8F7BFB2.jpg"> 
+<img src="../imgs/2.gif">
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

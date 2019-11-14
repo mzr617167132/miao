@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	body{
+		background-image: url("../zombimgs/bg1.jpg");
+		background-size: 200px 100px;
+		overflow: hidden;
+	}
+	
+</style>
+<script type="text/javascript">
+	var successCount = 0;
+	var failCount = 0;
+
+
+	onload = function(){
+		changeBg();
+	}
+	/* 窗口尺寸改变事件 */
+	onresize = function(){
+		changeBg();
+	}
+	function changeBg(){
+		//得到窗口的宽高
+		var w = document.body.parentElement.clientWidth;
+		var h = document.body.parentElement.clientHeight;
+		//alert(w+"---"+h);
+		document.body.style.backgroundSize=w+"px "+h+"px";
+	}
+	 
+	//创建添加僵尸的定时器
+	setInterval(function(){
+		//创建显示僵尸的图片
+		var img = document.createElement("img");
+		
+		var type = parseInt(successCount/30); 
+		type = type>3?3:type;
+		img.src = "../zombimgs/zomb"+type+".png";
+		
+		img.style.position="absolute";
+		//设置僵尸宽高
+		img.style.width="80px";
+		img.style.height="80px";
+		//获取屏幕宽高
+		var w = document.body.parentElement.clientWidth;
+		var h = document.body.parentElement.clientHeight;
+		//设置僵尸坐标
+		img.style.left = w+"px";
+		img.style.top = 
+				parseInt(Math.random()*(h-80))+"px";
+		document.body.appendChild(img);
+		
+		//给僵尸图片添加事件 
+		//通过元素对象添加事件称为动态绑定事件
+		img.onmouseover = function(){
+			//删除事件源 此时img和this同为事件源
+			document.body.removeChild(this);
+			successCount++;
+			success_h1.innerText = "成功次数："+successCount;
+		}
+	},100);
+	
+	//开启移动僵尸图片的定时器
+	setInterval(function(){
+		//得到所有的僵尸图片
+		var imgs = document.getElementsByTagName("img");
+		for(var i=0;i<imgs.length;i++){
+			//得到之前的left
+			var oldLeft = parseInt(imgs[i].style.left);
+			oldLeft-=2;
+			imgs[i].style.left = oldLeft+"px";
+			if(oldLeft<=0){
+				//把当前遍历的僵尸图片删除
+				document.body.removeChild(imgs[i]);
+				//统计失败次数并且显示
+				failCount++;
+				fail_h1.innerText="失败次数："+failCount;
+			}
+		}
+	},10);
+	
+	
+</script>
+<style type="text/css">
+#success_h1{
+	float: left;
+	color: red;
+	background-color: green;
+}
+#fail_h1{
+	float: right;
+	color: red;
+	background-color: green;
+}
+</style>
+</head>
+<body>
+<h1 id="success_h1">成功次数：0</h1>
+<h1 id="fail_h1">失败次数：0</h1>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

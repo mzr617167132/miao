@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function addfn(){
+		var ul = document.getElementById("myul");
+		var i = document.getElementById("i1");
+		var str = "<li>[c]</li>";
+		str = str.replace("[c]",i.value);
+		ul.innerHTML += str;
+	}
+</script>
+</head>
+<body>
+<input type="text" id="i1">
+<input type="button" value="添加" onclick="addfn()">
+<ul id="myul">
+	
+</ul>
+</body>
+</html>

@@ -1,0 +1,32 @@
+1.分组查询
+	group by 字段名,字段名
+		每个部门的最高工资 
+		select deptno,max(sal) from emp group by deptno;
+		
+2.having
+	where后面只能写普通字段的条件，不能写聚合函数的条件
+	having后面可以写普通字段条件，但是不建议这么做，
+	having一般要和分组查询结合使用，后面写聚合函数的条件，
+	having写在分组查询的后面	
+		查询每个部门的最高平均工资 
+		select deptno,avg(sal) a from emp group by deptno order by a desc limit 0,1;	
+		
+3.等值连接和内连接
+	*等值连接： 
+		select * from A,B where A.x=B.x and A.age=18;
+	*内连接：
+		select * from A join B on A.x=B.x where A.age=18;
+	*外链接（左外和右外）： 
+		select * from A left/right join B on A.x=B.x where A.age=18;
+	*如果查询的是两张表的交集数据使用等值连接或内连接（推荐）
+	*如果查询的数据是一张表的全部数据和另外一张表的交集数据使用外链接	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

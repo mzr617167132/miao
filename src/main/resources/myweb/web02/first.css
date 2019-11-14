@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+div{
+	/* 设置边框：粗细   样式   颜色 */
+	border: 1px solid purple;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" 
+	src="../js/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//让第二层的ul全部隐藏
+		$("li>ul").hide();
+		//给第一层的li添加点击事件
+		$("body>ul>li").click(function(){
+			//通过事件源li 得到里面的ul再让其隐藏显示切换
+			$(this).children().toggle(); 
+			//得到其它li让里面的ul全部隐藏
+			$(this).siblings().children().hide();
+		})
+	})
+</script>
+</head>
+<body>
+<ul>
+	<li>前女友们
+		<ul>
+			<li>貂蝉</li>
+			<li>西施</li>
+			<li>杨贵妃</li>
+		</ul>
+	</li>
+	<li>工作朋友
+		<ul>
+			<li>马云</li>
+			<li>马化腾</li>
+			<li>刘强东</li>
+		</ul>
+	</li>
+	<li>亲戚
+		<ul>
+			<li>习大大</li>
+			<li>老干妈</li>
+			<li>凤姐</li>
+		</ul>
+	</li>
+</ul>
+</body>
+</html>
+
+
+

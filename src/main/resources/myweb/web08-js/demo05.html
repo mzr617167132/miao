@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var arr=[8,17,11,2,5,50];
+ 
+	//创建自定义的排序方法
+	function mysort(a,b){
+		//return a-b;//升序
+		return b-a;  //  降序
+	}
+	//把方法当成参数传递的时候不加括号
+	//arr.sort(mysort);
+	arr.sort(new Function("a","b","return a-b;"));
+	alert(arr);
+ 
+</script>
+</head>
+<body>
+</body>
+</html>
+
+
+
+

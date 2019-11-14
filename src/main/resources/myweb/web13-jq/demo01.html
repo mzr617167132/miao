@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" 
+	src="../js/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+	var arr = [["秦皇岛","唐山","石家庄"],
+		["沈阳","大连","丹东"],["大同","太原","临汾"]];
+	$(function(){
+		$("select:first").change(function(){
+			//清空第二个下拉选
+			$("select:last").html("<option>请选择</option>");
+			//通过下标得到二维数组中对应的城市数组
+			 var citys = arr[this.value];
+			//遍历每一个城市的名称
+			 for(var i=0;i<citys.length;i++){
+				 //根据每一个城市名称创建option并添加到第二个下拉选中
+				 var opt = $("<option></option>");
+				 opt.text(citys[i]);
+				 $("select:last").append(opt);
+			 }
+		})
+	})	
+</script>
+</head>
+<body>
+<select>
+	<option>请选择</option>
+	<option value="0">河北省</option>
+	<option value="1">辽宁省</option>
+	<option value="2">山西省</option>
+</select>
+<select>
+	<option>请选择</option>
+</select>
+</body>
+</html>
+
+
+
+
